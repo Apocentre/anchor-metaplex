@@ -14,7 +14,7 @@
 //!    name: String,
 //!    symbol: String,
 //!    uri: String,
-//! ) -> ProgramResult {
+//! ) -> Result<()> {
 //!   let seeds: &[&[u8]] = &[
 //!     b"mint_authority", name.as_bytes(), symbol.as_bytes(),
 //!     &[state.bumps.mint_authority]
@@ -68,7 +68,7 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
   is_mutable: bool, 
   collection: Option<Collection>, 
   uses: Option<Uses>
-) -> ProgramResult {
+) -> Result<()> {
   let ix = create_metadata_accounts_v2(
     mpl_token_metadata::ID,
     accounts.metadata_account.key(),

@@ -4,7 +4,7 @@ Anchor Metaplex
 Example
 
 ```rust
-  use anchor_metaplex::{CreateMetadata, create_metadata};
+use anchor_metaplex::{CreateMetadata, create_metadata};
 
  pub fn Initialize(
     ctx: Context<Initialize>,
