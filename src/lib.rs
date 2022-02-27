@@ -99,7 +99,7 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
       accounts.rent,
     ],
     signer_seeds,
-  )  
+  ).map_err(Into::into)  
 }
 
 #[derive(Accounts)]
