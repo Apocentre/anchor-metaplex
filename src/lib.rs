@@ -47,10 +47,12 @@
 pub mod create_metadata;
 pub mod create_master_edition;
 pub mod set_and_verify_collection;
+pub mod verify_creator;
 
 pub use mpl_token_metadata;
 pub use crate::{
   create_metadata::*,
   create_master_edition::*,
   set_and_verify_collection::*,
+  verify_creator::*,
 };
