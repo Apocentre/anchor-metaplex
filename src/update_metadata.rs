@@ -12,8 +12,6 @@ use mpl_token_metadata::{
 pub struct UpdateMetadata<'info> {
   pub metadata_account: AccountInfo<'info>,
   pub update_authority: AccountInfo<'info>,
-  pub system_program: AccountInfo<'info>,
-  pub rent: AccountInfo<'info>,
 }
 
 pub fn update_metadata<'a, 'b, 'c, 'info>(
