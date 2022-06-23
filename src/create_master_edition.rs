@@ -19,8 +19,8 @@ pub struct CreateMasterEdition<'info> {
 
 pub fn create_master_edition<'a, 'b, 'c, 'info>(
   accounts: CreateMasterEdition<'info>,
-  max_supply: Option<u64>,
   signer_seeds: &[&[&[u8]]],
+  max_supply: Option<u64>,
 ) -> Result<()> {
   let ix = instruction::create_master_edition_v3(
     mpl_token_metadata::ID,
