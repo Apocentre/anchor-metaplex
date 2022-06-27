@@ -49,6 +49,7 @@ pub mod update_metadata;
 pub mod create_master_edition;
 pub mod set_and_verify_collection;
 pub mod verify_creator;
+pub mod update_primary_sale;
 
 pub use mpl_token_metadata;
 pub use crate::{
@@ -57,4 +58,5 @@ pub use crate::{
   create_master_edition::*,
   set_and_verify_collection::*,
   verify_creator::*,
+  update_primary_sale::*,
 };
