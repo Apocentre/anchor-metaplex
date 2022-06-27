@@ -12,7 +12,7 @@ pub struct UpdatePrimarySaleHappenedViaToken<'info> {
   pub token: AccountInfo<'info>,
 }
 
-pub fn verify_creator<'a, 'b, 'c, 'info>(
+pub fn update_primary_sale_happened_via_token<'a, 'b, 'c, 'info>(
   accounts: UpdatePrimarySaleHappenedViaToken<'info>,
   signer_seeds: &[&[&[u8]]],
 ) -> Result<()> {
