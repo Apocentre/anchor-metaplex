@@ -8,7 +8,7 @@ use mpl_token_metadata::{
 #[derive(Accounts)]
 pub struct UpdatePrimarySaleHappenedViaToken<'info> {
   pub metadata_account: AccountInfo<'info>,
-  pub owner: Signer<'info>,
+  pub owner: AccountInfo<'info>,
   pub token: AccountInfo<'info>,
 }
 
