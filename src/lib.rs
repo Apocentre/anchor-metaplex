@@ -50,6 +50,7 @@ pub mod create_master_edition;
 pub mod set_and_verify_collection;
 pub mod verify_creator;
 pub mod update_primary_sale;
+pub mod mint_new_edition_from_master_edition_via_token;
 
 pub use mpl_token_metadata;
 pub use crate::{
