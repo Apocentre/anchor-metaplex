@@ -1,7 +1,7 @@
 [package]
 name = "anchor-metaplex"
-version = "0.4.2"
-edition = "2018"
+version = "0.5.0"
+edition = "2021"
 authors = ["Pavlos Polianidis <info@apocentre.com>"]
 repository = "https://github.com/Apocentre/anchor-metaplex"
 description = "collection of helper numeric operation functions that allows seamless interaction of your Solana Anchor program with the Metaplex ecosystem"
@@ -16,5 +16,5 @@ license-file = "LICENSE"
 [dependencies]
 anchor-lang = "0.25.0"
 anchor-spl = "0.25.0"
-mpl-token-metadata = { version = "1.2.10", features = ["no-entrypoint"] }
+mpl-token-metadata = { version = "1.6.1", features = ["no-entrypoint"] }
 spl-token = "3.2.0"
