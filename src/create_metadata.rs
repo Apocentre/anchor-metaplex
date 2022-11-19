@@ -4,7 +4,7 @@ use anchor_spl::token::{Mint};
 use mpl_token_metadata::{
   state::{Uses, Creator, Collection},
   instruction::{
-    create_metadata_accounts_v2,
+    create_metadata_accounts_v3,
   },
 };
 
@@ -33,7 +33,7 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
   collection: Option<Collection>, 
   uses: Option<Uses>
 ) -> Result<()> {
-  let ix = create_metadata_accounts_v2(
+  let ix = create_metadata_accounts_v3(
     mpl_token_metadata::ID,
     accounts.metadata_account.key(),
     accounts.mint.to_account_info().key(),
@@ -49,6 +49,7 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
     is_mutable,
     collection,
     uses,
+    None,
   );
 
   solana_program::program::invoke_signed(
