@@ -14,7 +14,7 @@ license-file = "LICENSE"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anchor-lang = { git = "https://github.com/Apocentre/anchor", branch = "chore/lock_deps" }
-anchor-spl = { git = "https://github.com/Apocentre/anchor", branch = "chore/lock_deps" }
+anchor-lang = "0.26.0"
+anchor-spl = "0.26.0"
 mpl-token-metadata = { version = "1.8.3", features = ["no-entrypoint"] }
 spl-token = "3.5.0"
