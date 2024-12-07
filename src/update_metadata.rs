@@ -1,10 +1,9 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program;
+use mpl_token_metadata::instructions::UpdateMetadataAccountV2InstructionArgs;
 use mpl_token_metadata::{
-  state::{DataV2},
-  instruction::{
-    update_metadata_accounts_v2,
-  },
+  types::DataV2,
+  instructions::UpdateMetadataAccountV2
 };
 
 
@@ -22,22 +21,19 @@ pub fn update_metadata<'a, 'b, 'c, 'info>(
   primary_sale_happened: Option<bool>,
   is_mutable: Option<bool>,
 ) -> Result<()> {
-  let ix = update_metadata_accounts_v2(
-    mpl_token_metadata::ID,
-    accounts.metadata_account.key(),
-    accounts.update_authority.to_account_info().key(),
-    new_update_authority,
-    data,
-    primary_sale_happened,
-    is_mutable,
-  );
+  let ix = UpdateMetadataAccountV2 {
+    metadata: accounts.metadata_account.key(),
+    update_authority: accounts.update_authority.to_account_info().key(),
+  };
 
   solana_program::program::invoke_signed(
-    &ix,
-    &[
-      accounts.metadata_account,
-      accounts.update_authority,
-    ],
+    &ix.instruction(UpdateMetadataAccountV2InstructionArgs {
+      data,
+      new_update_authority,
+      primary_sale_happened,
+      is_mutable,
+    }),
+    &[],
     signer_seeds,
   ).map_err(Into::into)  
 }
