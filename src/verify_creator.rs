@@ -19,7 +19,10 @@ pub fn verify_creator<'a, 'b, 'c, 'info>(
 
   solana_program::program::invoke_signed(
     &ix.instruction(),
-    &[],
+    &[
+      accounts.metadata_account,
+      accounts.creator.to_account_info(),
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }

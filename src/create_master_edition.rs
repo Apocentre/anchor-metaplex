@@ -37,7 +37,16 @@ pub fn create_master_edition<'a, 'b, 'c, 'info>(
 
   solana_program::program::invoke_signed(
     &ix.instruction(CreateMasterEditionV3InstructionArgs {max_supply}),
-    &[],
+    &[
+      accounts.edition,
+      accounts.mint.to_account_info(),
+      accounts.update_authority,
+      accounts.mint_authority,
+      accounts.metadata_account,
+      accounts.payer,
+      accounts.system_program,
+      accounts.rent,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }

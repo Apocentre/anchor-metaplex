@@ -48,7 +48,22 @@ pub fn mint_new_edition_from_master_edition<'a, 'b, 'c, 'info>(
     &ix.instruction(MintNewEditionFromMasterEditionViaTokenInstructionArgs {
         mint_new_edition_from_master_edition_via_token_args: MintNewEditionFromMasterEditionViaTokenArgs {edition}
     }),
-    &[],
+    &[
+      accounts.new_metadata,
+      accounts.new_edition,
+      accounts.master_edition,
+      accounts.new_mint,
+      accounts.edition_mark_pda,
+      accounts.new_mint_authority,
+      accounts.payer.to_account_info(),
+      accounts.token_account_owner.to_account_info(),
+      accounts.token_account,
+      accounts.new_metadata_update_authority,
+      accounts.metadata,
+      accounts.token_program,
+      accounts.system_program,
+      accounts.rent,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 } 

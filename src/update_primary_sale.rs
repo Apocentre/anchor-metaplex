@@ -22,7 +22,11 @@ pub fn update_primary_sale_happened_via_token<'a, 'b, 'c, 'info>(
 
   solana_program::program::invoke_signed(
     &ix.instruction(),
-    &[],
+    &[
+      accounts.metadata_account,
+      accounts.owner.to_account_info(),
+      accounts.token,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }

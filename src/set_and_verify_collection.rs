@@ -32,7 +32,15 @@ pub fn set_and_verify_collection<'a, 'b, 'c, 'info>(
 
   solana_program::program::invoke_signed(
     &ix.instruction(),
-    &[ ],
+    &[
+      accounts.metadata_account,
+      accounts.collection_authority,
+      accounts.payer,
+      accounts.update_authority,
+      accounts.collection_mint.to_account_info(),
+      accounts.collection_metadata,
+      accounts.collection_master_edition,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }

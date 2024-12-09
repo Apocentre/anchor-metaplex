@@ -56,7 +56,15 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
         is_mutable,
         collection_details: None,
     }),
-    &[],
+    &[
+      accounts.metadata_account,
+      accounts.mint.to_account_info(),
+      accounts.mint_authority,
+      accounts.payer,
+      accounts.update_authority,
+      accounts.system_program,
+      accounts.rent,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }

@@ -33,7 +33,10 @@ pub fn update_metadata<'a, 'b, 'c, 'info>(
       primary_sale_happened,
       is_mutable,
     }),
-    &[],
+    &[
+      accounts.metadata_account,
+      accounts.update_authority,
+    ],
     signer_seeds,
   ).map_err(Into::into)  
 }
