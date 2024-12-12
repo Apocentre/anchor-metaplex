@@ -14,7 +14,6 @@ pub struct CreateMasterEdition<'info> {
   pub update_authority: AccountInfo<'info>,
   pub token_program: AccountInfo<'info>,
   pub system_program: AccountInfo<'info>,
-  pub rent: AccountInfo<'info>,
 }
 
 pub fn create_master_edition<'a, 'b, 'c, 'info>(
@@ -32,7 +31,7 @@ pub fn create_master_edition<'a, 'b, 'c, 'info>(
     metadata: accounts.metadata_account.key(),
     token_program: accounts.token_program.key(),
     system_program: accounts.system_program.key(),
-    rent: Some(accounts.rent.key()),
+    rent: None,
   };
 
   solana_program::program::invoke_signed(
@@ -45,7 +44,6 @@ pub fn create_master_edition<'a, 'b, 'c, 'info>(
       accounts.metadata_account,
       accounts.payer,
       accounts.system_program,
-      accounts.rent,
     ],
     signer_seeds,
   ).map_err(Into::into)  

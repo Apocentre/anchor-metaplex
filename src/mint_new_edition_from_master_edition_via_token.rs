@@ -19,7 +19,6 @@ pub struct MintNewEditionFromMasterEditionViaToken<'info> {
   pub metadata: AccountInfo<'info>,
   pub token_program: AccountInfo<'info>,
   pub system_program: AccountInfo<'info>,
-  pub rent: AccountInfo<'info>,
 }
 
 pub fn mint_new_edition_from_master_edition<'a, 'b, 'c, 'info>(
@@ -41,7 +40,7 @@ pub fn mint_new_edition_from_master_edition<'a, 'b, 'c, 'info>(
     metadata: accounts.metadata.key(),
     token_program: accounts.token_program.key(),
     system_program: accounts.system_program.key(),
-    rent: Some(accounts.rent.key()),
+    rent: None,
   };
 
   solana_program::program::invoke_signed(
@@ -62,7 +61,6 @@ pub fn mint_new_edition_from_master_edition<'a, 'b, 'c, 'info>(
       accounts.metadata,
       accounts.token_program,
       accounts.system_program,
-      accounts.rent,
     ],
     signer_seeds,
   ).map_err(Into::into)  

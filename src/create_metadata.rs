@@ -17,7 +17,6 @@ pub struct CreateMetadata<'info> {
   pub payer: AccountInfo<'info>,
   pub update_authority: AccountInfo<'info>,
   pub system_program: AccountInfo<'info>,
-  pub rent: AccountInfo<'info>,
 }
 
 pub fn create_metadata<'a, 'b, 'c, 'info>(
@@ -39,7 +38,7 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
     payer: accounts.payer.key(),
     update_authority: (accounts.update_authority.key(), true),
     system_program: accounts.system_program.key(),
-    rent: Some(accounts.rent.key()),
+    rent: None,
   };
 
   solana_program::program::invoke_signed(
@@ -63,7 +62,6 @@ pub fn create_metadata<'a, 'b, 'c, 'info>(
       accounts.payer,
       accounts.update_authority,
       accounts.system_program,
-      accounts.rent,
     ],
     signer_seeds,
   ).map_err(Into::into)  
