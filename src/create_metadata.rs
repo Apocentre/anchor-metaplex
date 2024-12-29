@@ -1,6 +1,5 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program;
-use anchor_spl::token::Mint;
 use mpl_token_metadata::instructions::CreateMetadataAccountV3InstructionArgs;
 use mpl_token_metadata::types::DataV2;
 use mpl_token_metadata::{
@@ -11,7 +10,7 @@ use mpl_token_metadata::{
 
 #[derive(Accounts)]
 pub struct CreateMetadata<'info> {
-  pub mint: Account<'info, Mint>,
+  pub mint: AccountInfo<'info>,
   pub mint_authority: AccountInfo<'info>,
   pub metadata_account: AccountInfo<'info>,
   pub payer: AccountInfo<'info>,

@@ -1,6 +1,5 @@
 use anchor_lang::prelude::*;
 use anchor_lang::solana_program;
-use anchor_spl::token::Mint;
 use mpl_token_metadata::instructions::SetAndVerifyCollection as MetaSetAndVerifyCollection;
 
 #[derive(Accounts)]
@@ -9,7 +8,7 @@ pub struct SetAndVerifyCollection<'info> {
   pub collection_authority: AccountInfo<'info>,
   pub payer: AccountInfo<'info>,
   pub update_authority: AccountInfo<'info>,
-  pub collection_mint: Account<'info, Mint>,
+  pub collection_mint: AccountInfo<'info>,
   pub collection_metadata: AccountInfo<'info>,
   pub collection_master_edition: AccountInfo<'info>,
   pub collection_authority_record: AccountInfo<'info>,
